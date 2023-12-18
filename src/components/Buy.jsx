@@ -99,7 +99,7 @@ const Buy = () => {
                     <button type="button" className="btn btn-danger btn-lg" onClick={() => comprarPelicula({title: data.Title})}>Comprar</button>
                   </div>
                   <div className="mt-3 d-grid gap-2">
-                    <button type="button" class="btn btn-warning btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick={() => comprarPelicula({title: data.Title})}>
+                    <button type="button" class="btn btn-warning btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                       Ver tráiler
                     </button>
                   </div>
