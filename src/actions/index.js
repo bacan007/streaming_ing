@@ -41,7 +41,7 @@ export function getDataById(id) {
 
 export function getTrailerMovieById(id) {
   return function(dispatch) {
-    return fetch("https://api.kinocheck.de/movies?imdb_id=" + id)
+    return fetch("httpss://api.kinocheck.de/movies?imdb_id=" + id)
       .then(response => response.json())
       .then(json => {
         dispatch({ type: "DATA_LOADED", payload: json });
