@@ -11,7 +11,7 @@ export function removeArticle(payload) {
 
 export function getData(titulo) {
   return function(dispatch) {
-    return fetch("http://www.omdbapi.com/?i=tt3896198&apikey=e8cfdf2d&s=" + titulo)
+    return fetch("https://www.omdbapi.com/?i=tt3896198&apikey=e8cfdf2d&s=" + titulo)
       .then(response => response.json())
       .then(json => {
         dispatch({ type: "DATA_LOADED", payload: json });
@@ -31,7 +31,7 @@ export function getDataInit() {
 
 export function getDataById(id) {
   return function(dispatch) {
-    return fetch("http://www.omdbapi.com/?i=" + id)
+    return fetch("https://www.omdbapi.com/?i=" + id)
       .then(response => response.json())
       .then(json => {
         dispatch({ type: "DATA_LOADED", payload: json });
@@ -41,7 +41,7 @@ export function getDataById(id) {
 
 export function getTrailerMovieById(id) {
   return function(dispatch) {
-    return fetch("https://api.kinocheck.de/movies?imdb_id=" + id)
+    return fetch("httpss://api.kinocheck.de/movies?imdb_id=" + id)
       .then(response => response.json())
       .then(json => {
         dispatch({ type: "DATA_LOADED", payload: json });
