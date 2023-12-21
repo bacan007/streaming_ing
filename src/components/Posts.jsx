@@ -3,6 +3,35 @@ import { connect } from "react-redux";
 import { getData, getDataInit } from "../actions/index";
 import { addArticle } from "../actions/index";
 import {  Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
+
+function useGeolocation(options) {
+	const [position, setPosition] = useState();
+	const [error, setError] = useState();
+	
+	useEffect(() => {
+		let canceled = false;
+		navigator.geolocation.getCurrentPosition(
+			(position) => {
+				if (!canceled) {
+					setPosition(position);
+				}
+			},
+			(error) => {
+			if (!canceled) {
+				setError(error);
+			}
+		},
+		options
+	);
+	
+	return () => {
+		canceled = true;
+		};
+	}, [options]);
+	
+	return [position, error];
+}
 
 function mapStateToProps(state) {
   return {
@@ -37,7 +66,6 @@ export class Post extends Component {
   }
 
   handleLoad(event) {
-    console.log("OK");
     this.props.getDataInit();
   }
 
@@ -45,6 +73,7 @@ export class Post extends Component {
     window.addEventListener('load', this.handleLoad);
   }
 
+  
   render() {
     const { title } = this.state;
     return (
